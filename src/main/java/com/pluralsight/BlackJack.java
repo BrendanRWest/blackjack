@@ -34,8 +34,14 @@ public class BlackJack {
             }
         }
         for (Player player : players) {
+
+            if(player.getPlayerHand().getValue() == 21){
+                System.out.println("Woo, " + player.getPlayerName() + " has blackjack!");
+                continue;
+            }
             System.out.println(player.getPlayerName() + " has " +
                     player.getPlayerHand().getValue());
+
             System.out.print("Would you like to hit? (y/n): ");
             hit = scan.nextLine();
 
@@ -48,7 +54,7 @@ public class BlackJack {
                     hit = "n";
                 } else if (player.getPlayerHand().getValue() > 21) {
                     System.out.println("Oh no, " + player.getPlayerName() +
-                            "has busted!");
+                            " has busted!");
                     hit = "n";
                 } else{
                     System.out.print("Would you like to hit again? (y/n): ");
